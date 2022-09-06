@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """ test for console"""
-
 import sys
 import models
 import unittest
@@ -10,7 +9,7 @@ from unittest.mock import create_autospec
 
 
 class test_console(unittest.TestCase):
-    ''' Tests the console module'''
+    ''' Test the console module'''
     def setUp(self):
         '''setup for'''
         self.backup = sys.stdout
@@ -22,28 +21,28 @@ class test_console(unittest.TestCase):
         sys.stdout = self.backup
 
     def create(self):
-        ''' creates an instance of the HBNBCommand class'''
+        ''' create an instance of the HBNBCommand class'''
         return HBNBCommand()
 
     def test_quit(self):
-        ''' Tests quit exists'''
+        ''' Test quit exists'''
         console = self.create()
         self.assertTrue(console.onecmd("quit"))
 
     def test_EOF(self):
-        ''' Tests EOF exists'''
+        ''' Test EOF exists'''
         console = self.create()
         self.assertTrue(console.onecmd("EOF"))
 
     def test_all(self):
-        ''' Tests all exists'''
+        ''' Test all exists'''
         console = self.create()
         console.onecmd("all")
         self.assertTrue(isinstance(self.capt_out.getvalue(), str))
 
     def test_show(self):
         '''
-        Tests that show exists
+        Testing that show exists
         '''
         console = self.create()
         console.onecmd("create User")
@@ -59,7 +58,7 @@ class test_console(unittest.TestCase):
 
         def test_show_class_name(self):
             '''
-            Tests the error messages for class name missing.
+            Testing the error messages for class name missing.
             '''
             console = self.create()
             console.onecmd("create User")
@@ -75,7 +74,7 @@ class test_console(unittest.TestCase):
 
         def test_show_class_name2(self):
             '''
-            Tests show message error for id missing
+            Test show message error for id missing
             '''
             console = self.create()
             console.onecmd("create User")
@@ -91,7 +90,7 @@ class test_console(unittest.TestCase):
 
         def test_show_no_instance_found(self):
             '''
-            Tests show message error for id missing
+            Test show message error for id missing
             '''
             console = self.create()
             console.onecmd("create User")
@@ -107,7 +106,7 @@ class test_console(unittest.TestCase):
 
         def test_create(self):
             '''
-            Tests that create works
+            Test that create works
             '''
             console = self.create()
             console.onecmd("create User")
